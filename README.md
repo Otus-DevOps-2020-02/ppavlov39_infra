@@ -12,15 +12,15 @@ $ssh -J bastion someinternalhost<br>
     <li> someinternalhost - целевой хост, недоступный из внешней сети;</li>
 </ul>
 Для подключения к целевому хосту, используя команду "ssh someinternalhost" необходимо в директории ~/.ssh/ создать файл "config", в котором должно быть следующее:<br>
-Host bastion<br>
+<pre>Host bastion<br>
      HostName <bastion_host_address><br>
      User <ssh_user><br>
      ForwardAgent yes<br>
 <P>
 Host someinternalhost<br>
     HostName someinternalhost<br>
-    ProxyJump bastion<br>
-
+    ProxyJump bastion
+</pre><P>
 <h2>VPN</h2>
 
 Адрес WEB-интерфейса VPN-сервера, с подключенным SSL-сертификатом от Let's Encrypt: https://35.214.205.69.xip.io<P>
