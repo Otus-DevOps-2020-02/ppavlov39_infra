@@ -25,6 +25,7 @@ Host someinternalhost
 
 Адрес WEB-интерфейса VPN-сервера, с подключенным SSL-сертификатом от Let's Encrypt: https://35.214.205.69.xip.io<P>
 <P>
-<pre>bastion_IP = 35.214.205.69
+<pre>
+bastion_IP = 35.214.205.69
 someinternalhost_IP = 10.164.0.3
 </pre>
