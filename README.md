@@ -20,7 +20,8 @@ $ssh -J bastion someinternalhost<br>
 Host someinternalhost
     HostName someinternalhost
     ProxyJump bastion
-</pre><P>
+</pre>
+<P>
 <h2>VPN</h2>
 
 Адрес WEB-интерфейса VPN-сервера, с подключенным SSL-сертификатом от Let's Encrypt: https://35.214.205.69.xip.io<P>
