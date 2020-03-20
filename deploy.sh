@@ -1,6 +1,11 @@
 #!/bin/bash
 
-cd /home/appuser && git clone -b monolith https://github.com/express42/reddit.git
+useradd appuser -s /bin/bash -m -G sudo
+echo "appuser:asdadjhsdjhsdfkjhsdjf" | sudo chpasswd
+su -c 'cd /home/appuser && git clone -b monolith https://github.com/express42/reddit.git' appuser
 cd /home/appuser/reddit/ && sudo bundle install
-cd /home/appuser/reddit && puma -d
+chown appuser:appuser -R /home/appuser
+
+su -c 'cd /home/appuser/reddit && puma -d'
+
 

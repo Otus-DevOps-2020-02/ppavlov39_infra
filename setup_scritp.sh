@@ -14,3 +14,5 @@ cd /home/appuser/reddit/ && sudo bundle install
 chown appuser:appuser -R /home/appuser
 
 su -c 'cd /home/appuser/reddit && puma -d'
+
+

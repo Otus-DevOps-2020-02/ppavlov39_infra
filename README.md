@@ -72,3 +72,5 @@ su -c 'cd /home/appuser/reddit && puma -d'
 <pre>
 gcloud compute firewall-rules create default-puma-server --allow tcp:9292
 </pre>
+
+
