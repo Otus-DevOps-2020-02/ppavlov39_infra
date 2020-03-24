@@ -73,4 +73,14 @@ su -c 'cd /home/appuser/reddit && puma -d'
 gcloud compute firewall-rules create default-puma-server --allow tcp:9292
 </pre>
 
-
+<h2>Packer</h2>
+<b>В этой работе сделано:</b>
+<ul>
+  <li>Написан шаблон для Packer. Протестирована работа ВМ созданной на его основе;</li>
+  <li>В шаблон добавлено использование переменных, которые вынесены в отдельный файл;</li>
+  <li>Файл с переменными включен в .gitignore;</li>
+  <li>Дополнительно написан шаблон для образа reddit-full, в котором реализовано создание образа с развернутым приложением, запускающимся вместе в ВМ. В качестве базового образа используется ранее созданный reddit-base;</li>
+  <li>В файл "config-scripts/create-reddit-vm.sh" помещена команда создающая новый инстанс из ранее собранного образа, с уже развернутым приложением и настроенным его автозапуском (reddit-full).
+  <pre>gcloud compute instances create reddit-app-test --image-family reddit-full --machine-type=f1-micro</pre>
+  </li>
+</ul>

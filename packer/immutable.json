@@ -8,8 +8,8 @@
     {
       "type": "googlecompute",
       "project_id": "{{ user `project_id` }}",
-      "image_name": "reddit-base-{{timestamp}}",
-      "image_family": "reddit-base",
+      "image_name": "reddit-full-{{timestamp}}",
+      "image_family": "reddit-full",
       "source_image_family": "{{ user `source_image_family` }}",
       "zone": "europe-west4-b",
       "ssh_username": "appuser",
@@ -23,13 +23,18 @@
   ],
   "provisioners": [
     {
+      "type": "file",
+      "source": "files/puma.service",
+      "destination": "/tmp/puma.service"
+    },
+    {
       "type": "shell",
-      "script": "scripts/install_ruby.sh",
+      "inline": ["mv /tmp/puma.service /etc/systemd/system/"],
       "execute_command": "sudo {{.Path}}"
     },
     {
       "type": "shell",
-      "script": "scripts/install_mongodb.sh",
+      "script": "files/deploy.sh",
       "execute_command": "sudo {{.Path}}"
     }
   ]
