@@ -11,7 +11,7 @@ variable db_disk_image {
 }
 variable app_name {
   description = "App name"
-  default = "reddit-app"
+  default = "reddit-db"
 }
 variable machine_type {
   description = "Machine type"
