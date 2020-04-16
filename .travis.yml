@@ -1,9 +1,22 @@
 dist: trusty
 sudo: required
 language: bash
+
+env:
+  - tf_version=0.12.8
+
 before_install:
-- curl https://raw.githubusercontent.com/express42/otus-homeworks/2020-02/run.sh |
-  bash
+#  - curl https://raw.githubusercontent.com/express42/otus-homeworks/2020-02/run.sh | bash
+  - wget https://releases.hashicorp.com/terraform/"$tf_version"/terraform_"$tf_version"_linux_amd64.zip && \
+    unzip terraform_"$tf_version"_linux_amd64.zip && \
+    sudo mv terraform /usr/local/bin/ && \
+    rm terraform_"$tf_version"_linux_amd64.zip
+  - terraform --version
+
+#branches:
+#  only:
+#    - master
+
 notifications:
   slack:
     rooms:
