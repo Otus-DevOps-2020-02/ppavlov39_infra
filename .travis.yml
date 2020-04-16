@@ -10,7 +10,7 @@ before_install:
   - ls -l ./
   - wget https://releases.hashicorp.com/terraform/"$tf_version"/terraform_"$tf_version"_linux_amd64.zip
   - sudo apt-get -y install unzip
-  - ls -l ./
+  - rm -rf ./terraform
   - unzip -o terraform_"$tf_version"_linux_amd64.zip
   - ls -l ./
   - sudo mv terraform /usr/local/bin/
