@@ -5,7 +5,7 @@
   tags: db-tag
   vars:
     mongo_bind_ip: 0.0.0.0
-  tasks: 
+  tasks:
     - name: Change mongo config file
       template:
         src: templates/mongod.conf.j2
@@ -20,7 +20,7 @@
 - name: Configure App
   hosts: app
   become: true
-  tags: app-tag  
+  tags: app-tag
   vars:
     db_host: 10.164.15.192
   tasks:
@@ -31,7 +31,7 @@
       notify: Reload puma
 
     - name: Add config for DB connection
-      template: 
+      template:
         src: templates/db_config.j2
         dest: /home/appuser/db_config
 
@@ -64,4 +64,3 @@
       become: true
       systemd: name=puma state=restarted
 
-  
