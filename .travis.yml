@@ -7,21 +7,19 @@ env:
 
 before_install:
 #  - curl https://raw.githubusercontent.com/express42/otus-homeworks/2020-02/run.sh | bash
-  - ls -l ./
   - wget https://releases.hashicorp.com/terraform/"$tf_version"/terraform_"$tf_version"_linux_amd64.zip
   - sudo apt-get -y install unzip
   - rm -rf ./terraform
   - unzip -o terraform_"$tf_version"_linux_amd64.zip
-  - ls -l ./
   - sudo mv terraform /usr/local/bin/
   - rm terraform_"$tf_version"_linux_amd64.zip
   - /usr/local/bin/terraform --version
   - git clone https://github.com/Otus-DevOps-2020-02/ppavlov39_infra
   - cd ./ppavlov39_infra 
   - terraform init ./terraform/prod/ 
-  - terraform validate ./terraform/prod/
   - terraform init ./terraform/stage/ 
   - terraform validate ./terraform/prod/
+  - terraform validate ./terraform/stage/
 
 #branches:
 #  only:
