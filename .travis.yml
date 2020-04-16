@@ -8,18 +8,23 @@ env:
 before_install:
 #  - curl https://raw.githubusercontent.com/express42/otus-homeworks/2020-02/run.sh | bash
   - wget https://releases.hashicorp.com/terraform/"$tf_version"/terraform_"$tf_version"_linux_amd64.zip
+  - wget https://releases.hashicorp.com/packer/1.5.5/packer_1.5.5_linux_amd64.zip
   - sudo apt-get -y install unzip
   - rm -rf ./terraform
-  - unzip -o terraform_"$tf_version"_linux_amd64.zip
+  - unzip -f terraform_"$tf_version"_linux_amd64.zip
+  - unzip -f packer_1.5.5_linux_amd64.zip
   - sudo mv terraform /usr/local/bin/
+  - sudo mv packer /usr/local/bin/
   - rm terraform_"$tf_version"_linux_amd64.zip
   - /usr/local/bin/terraform --version
   - git clone https://github.com/Otus-DevOps-2020-02/ppavlov39_infra
   - cd ./ppavlov39_infra 
   - terraform init ./terraform/prod/ 
   - terraform init ./terraform/stage/ 
-  - terraform validate ./terraform/prod/ && echo "√ PROD"
-  - terraform validate ./terraform/stage/ && echo "√ STAGE"
+  - terraform validate ./terraform/prod/ && if [ $? -ne 0 ] ; then ; echo  "PROD +++ " ; fi
+  - terraform validate ./terraform/stage/ && if [ $? -ne 0 ] ; then ; echo  "STAGE +++ " ; fi
+  - packer validate -var-file ./packer/variables.json ./packer/app.json
+  - packer validate -var-file ./packer/variables.json ./packer/stage.json
 
 #branches:
 #  only:
