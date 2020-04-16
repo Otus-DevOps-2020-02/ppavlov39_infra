@@ -18,8 +18,8 @@ before_install:
   - cd ./ppavlov39_infra 
   - terraform init ./terraform/prod/ 
   - terraform init ./terraform/stage/ 
-  - terraform validate ./terraform/prod/
-  - terraform validate ./terraform/stage/
+  - terraform validate ./terraform/prod/ && echo "√ PROD"
+  - terraform validate ./terraform/stage/ && echo "√ STAGE"
 
 #branches:
 #  only:
