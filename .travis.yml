@@ -17,8 +17,11 @@ before_install:
   - rm terraform_"$tf_version"_linux_amd64.zip
   - /usr/local/bin/terraform --version
   - git clone https://github.com/Otus-DevOps-2020-02/ppavlov39_infra
-  - cd ~/ppavlov39_infra && terraform init ./terraform/prod/ && terraform validate ./terraform/prod/
-  - cd ~/ppavlov39_infra && terraform init ./terraform/stage/ && terraform validate ./terraform/prod/
+  - cd ./ppavlov39_infra 
+  - terraform init ./terraform/prod/ 
+  - terraform validate ./terraform/prod/
+  - terraform init ./terraform/stage/ 
+  - terraform validate ./terraform/prod/
 
 #branches:
 #  only:
