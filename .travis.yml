@@ -23,8 +23,10 @@ before_install:
   - cd ./ppavlov39_infra 
   - terraform init ./terraform/prod/ 
   - terraform init ./terraform/stage/ 
-  - terraform validate ./terraform/prod/ && if [ $? -ne 0 ] ; then ; echo  "PROD +++ " ; fi
-  - terraform validate ./terraform/stage/ && if [ $? -ne 0 ] ; then ; echo  "STAGE +++ " ; fi
+  - terraform validate ./terraform/prod/ 
+#&& if [ $? -ne 0 ] ; then ; echo  "PROD +++ " ; fi
+  - terraform validate ./terraform/stage/ 
+#&& if [ $? -ne 0 ] ; then ; echo  "STAGE +++ " ; fi
   - packer validate -var-file ./packer/variables.json ./packer/app.json
   - packer validate -var-file ./packer/variables.json ./packer/stage.json
 
