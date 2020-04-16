@@ -24,7 +24,7 @@ module "db" {
 
 module "vpc" {
   source        = "../modules/vpc"
-  source_ranges = ["31.192.131.42/32"]
+  source_ranges = ["109.111.146.164/32"]
 }
 
 
