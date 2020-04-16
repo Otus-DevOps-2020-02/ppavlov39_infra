@@ -27,9 +27,8 @@ before_install:
   - terraform validate ./terraform/prod/ && if [ $? -ne 0 ] ; then echo  "PROD +++ " ; fi
   - terraform validate ./terraform/stage/ && if [ $? -ne 0 ] ; then echo  "STAGE +++ " ; fi
   - cd ./packer
-  - find .
   - packer validate -var-file ./variables.json.example ./app.json
-  - packer validate -var-file ./variables.json.example ./stage.json
+  - packer validate -var-file ./variables.json.example ./db.json
   - cd .. && ansible-lint ./ansible/playbooks/*.yml
 
 #branches:
