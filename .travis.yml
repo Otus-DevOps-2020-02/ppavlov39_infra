@@ -7,29 +7,27 @@ env:
 
 before_install:
 #  - curl https://raw.githubusercontent.com/express42/otus-homeworks/2020-02/run.sh | bash
-  - wget https://releases.hashicorp.com/terraform/"$tf_version"/terraform_"$tf_version"_linux_amd64.zip
-  - wget https://releases.hashicorp.com/packer/1.5.5/packer_1.5.5_linux_amd64.zip
+#  - wget https://releases.hashicorp.com/terraform/"$tf_version"/terraform_"$tf_version"_linux_amd64.zip
+#  - wget https://releases.hashicorp.com/packer/1.5.5/packer_1.5.5_linux_amd64.zip
   - sudo apt-get -y install unzip python3-pip
   - sudo pip install ansible-lint
-  - ls -la
   - rm -rf ./terraform
   - rm -rf ./packer
-  - unzip -o terraform_"$tf_version"_linux_amd64.zip
-  - unzip -o packer_1.5.5_linux_amd64.zip
-  - sudo mv terraform /usr/local/bin/
-  - sudo mv packer /usr/local/bin/
-  - rm terraform_"$tf_version"_linux_amd64.zip
-  - /usr/local/bin/terraform --version
+#  - unzip -o terraform_"$tf_version"_linux_amd64.zip
+#  - unzip -o packer_1.5.5_linux_amd64.zip
+#  - sudo mv terraform /usr/local/bin/
+#  - sudo mv packer /usr/local/bin/
+#  - rm terraform_"$tf_version"_linux_amd64.zip
   - git clone https://github.com/Otus-DevOps-2020-02/ppavlov39_infra
   - cd ./ppavlov39_infra 
-  - terraform init ./terraform/prod/ 
-  - terraform init ./terraform/stage/ 
-  - terraform validate ./terraform/prod/ && if [ $? -ne 0 ] ; then echo  "PROD +++ " ; fi
-  - terraform validate ./terraform/stage/ && if [ $? -ne 0 ] ; then echo  "STAGE +++ " ; fi
+#  - terraform init ./terraform/prod/ 
+#  - terraform init ./terraform/stage/ 
+#  - terraform validate ./terraform/prod/ && if [ $? -ne 0 ] ; then echo  "PROD +++ " ; fi
+#  - terraform validate ./terraform/stage/ && if [ $? -ne 0 ] ; then echo  "STAGE +++ " ; fi
   - cd ./packer
-  - packer validate -var-file ./variables.json.example ./app.json
-  - packer validate -var-file ./variables.json.example ./db.json
-  - cd .. && ansible-lint ./ansible/playbooks/*.yml
+#  - packer validate -var-file ./variables.json.example ./app.json
+#  - packer validate -var-file ./variables.json.example ./db.json
+  - ansible-lint ../ansible/playbooks/*.yml
 
 #branches:
 #  only:
