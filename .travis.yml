@@ -19,12 +19,16 @@ before_install:
 #  - sudo mv packer /usr/local/bin/
 #  - rm terraform_"$tf_version"_linux_amd64.zip
   - git clone https://github.com/Otus-DevOps-2020-02/ppavlov39_infra
+  - ls -la
   - cd ./ppavlov39_infra 
+  - ls -la
 #  - terraform init ./terraform/prod/ 
 #  - terraform init ./terraform/stage/ 
 #  - terraform validate ./terraform/prod/ && if [ $? -ne 0 ] ; then echo  "PROD +++ " ; fi
 #  - terraform validate ./terraform/stage/ && if [ $? -ne 0 ] ; then echo  "STAGE +++ " ; fi
   - cd ./packer
+  - ls -la
+  - pwd
 #  - packer validate -var-file ./variables.json.example ./app.json
 #  - packer validate -var-file ./variables.json.example ./db.json
   - ansible-lint ../ansible/playbooks/*.yml
