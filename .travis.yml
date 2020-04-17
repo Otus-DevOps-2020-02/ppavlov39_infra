@@ -30,8 +30,8 @@ before_install:
   - cd ./packer
   - ls -la
   - pwd
-  - packer validate -var-file ./variables.json.example ./app.json
-  - packer validate -var-file ./variables.json.example ./db.json
+  - packer validate -var-file ./packer/variables.json.example ./packer/app.json
+  - packer validate -var-file ./packer/variables.json.example ./packer/db.json
   - ansible-lint ../ansible/playbooks/*.yml
 
 #branches:
