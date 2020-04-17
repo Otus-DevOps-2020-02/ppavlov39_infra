@@ -27,8 +27,8 @@ before_install:
   - terraform init ./terraform/stage/ 
   - terraform validate ./terraform/prod/ && if [ $? -ne 0 ] ; then echo  "PROD +++ " ; fi
   - terraform validate ./terraform/stage/ && if [ $? -ne 0 ] ; then echo  "STAGE +++ " ; fi
-  - cd ./packer
-  - ls -la
+#  - cd ./packer
+#  - ls -la
   - pwd
   - packer validate -var-file ./packer/variables.json.example ./packer/app.json
   - packer validate -var-file ./packer/variables.json.example ./packer/db.json
