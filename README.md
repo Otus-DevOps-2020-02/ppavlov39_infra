@@ -1,4 +1,7 @@
 # ppavlov39_infra
+
+[![Build Status](https://travis-ci.com/Otus-DevOps-2020-02/ppavlov39_infra.svg?branch=master)](https://travis-ci.com/Otus-DevOps-2020-02/ppavlov39_infra)
+
 ppavlov39 Infra repository
 
 <h2>SSH</h2>
