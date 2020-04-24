@@ -36,8 +36,8 @@ before_install:
   - packer validate -var-file ./packer/variables.json.example ./packer/app.json
   - packer validate -var-file ./packer/variables.json.example ./packer/db.json
   - ansible-lint ./ansible/playbooks/*.yml
-  - tflint ./terraform/stage
-  - ftlint ./terraform/prod
+  - tflint ./terraform/stage/
+  - ftlint ./terraform/prod/
 
 #branches:
 #  only:
