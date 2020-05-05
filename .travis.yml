@@ -28,9 +28,9 @@ before_install:
   - tflint ./terraform/stage/
   - tflint ./terraform/prod/
 
-branches:
- only:
-    - master
+    #branches:
+    # only:
+    #    - master
 
 notifications:
   slack:
